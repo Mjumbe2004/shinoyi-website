@@ -1,0 +1,22 @@
+User-agent: *
+Allow: /
+
+# Specific rules for better crawling
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Disallow spammers
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+# Sitemap location
+Sitemap: https://Mjumbe2004.github.io/shinoyi-website/sitemap.xml
+
+# Crawl delay (in seconds)
+Crawl-delay: 1
