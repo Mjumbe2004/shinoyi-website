@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard - Secondary School</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">📚 Secondary School</div>
+            <ul class="nav-links">
+                <li><a href="student-dashboard.html" class="active">Dashboard</a></li>
+                <li><a href="#grades">Grades</a></li>
+                <li><a href="#assignments">Assignments</a></li>
+                <li><a href="#schedule">Schedule</a></li>
+                <li><button onclick="logout()" class="logout-btn">Logout</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="user-profile">
+                <div class="avatar">👨‍🎓</div>
+                <h3 id="studentName"></h3>
+                <p>Student</p>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" onclick="showSection('overview')">Overview</a>
+                <a href="#" onclick="showSection('grades')">My Grades</a>
+                <a href="#" onclick="showSection('assignments')">Assignments</a>
+                <a href="#" onclick="showSection('attendance')">Attendance</a>
+                <a href="#" onclick="showSection('schedule')">Class Schedule</a>
+                <a href="#" onclick="showSection('messages')">Messages</a>
+            </nav>
+        </aside>
+
+        <main class="dashboard-content">
+            <section id="overview" class="section-content">
+                <h2>Welcome Back!</h2>
+                <div class="dashboard-grid">
+                    <div class="card">
+                        <h3>📊 Current GPA</h3>
+                        <p class="large-text" id="gpa">3.8</p>
+                    </div>
+                    <div class="card">
+                        <h3>📚 Courses</h3>
+                        <p class="large-text">6</p>
+                    </div>
+                    <div class="card">
+                        <h3>✅ Attendance</h3>
+                        <p class="large-text">95%</p>
+                    </div>
+                    <div class="card">
+                        <h3>📝 Pending Assignments</h3>
+                        <p class="large-text" id="pendingAssignments">3</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="grades" class="section-content hidden">
+                <h2>My Grades</h2>
+                <table class="grades-table">
+                    <thead>
+                        <tr>
+                            <th>Subject</th>
+                            <th>Teacher</th>
+                            <th>Grade</th>
+                            <th>Percentage</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Mathematics</td>
+                            <td>Mr. Johnson</td>
+                            <td>A</td>
+                            <td>92%</td>
+                        </tr>
+                        <tr>
+                            <td>English</td>
+                            <td>Ms. Smith</td>
+                            <td>A-</td>
+                            <td>88%</td>
+                        </tr>
+                        <tr>
+                            <td>Science</td>
+                            <td>Dr. Brown</td>
+                            <td>A</td>
+                            <td>91%</td>
+                        </tr>
+                        <tr>
+                            <td>History</td>
+                            <td>Mr. Davis</td>
+                            <td>B+</td>
+                            <td>85%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="assignments" class="section-content hidden">
+                <h2>My Assignments</h2>
+                <div class="assignments-list">
+                    <div class="assignment-card">
+                        <h3>Mathematics - Chapter 5 Problems</h3>
+                        <p><strong>Subject:</strong> Mathematics</p>
+                        <p><strong>Due Date:</strong> June 15, 2024</p>
+                        <p><strong>Status:</strong> <span class="status-pending">Pending</span></p>
+                    </div>
+                    <div class="assignment-card">
+                        <h3>English - Essay on Shakespeare</h3>
+                        <p><strong>Subject:</strong> English</p>
+                        <p><strong>Due Date:</strong> June 18, 2024</p>
+                        <p><strong>Status:</strong> <span class="status-pending">Pending</span></p>
+                    </div>
+                    <div class="assignment-card">
+                        <h3>Science - Lab Report</h3>
+                        <p><strong>Subject:</strong> Science</p>
+                        <p><strong>Due Date:</strong> June 12, 2024</p>
+                        <p><strong>Status:</strong> <span class="status-submitted">Submitted</span></p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="attendance" class="section-content hidden">
+                <h2>Attendance Record</h2>
+                <div class="attendance-stats">
+                    <div class="stat-card">
+                        <h3>Total Days Present</h3>
+                        <p>180</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Days Absent</h3>
+                        <p>5</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Days Late</h3>
+                        <p>3</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Attendance Percentage</h3>
+                        <p>95%</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="schedule" class="section-content hidden">
+                <h2>Class Schedule</h2>
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Monday</th>
+                            <th>Tuesday</th>
+                            <th>Wednesday</th>
+                            <th>Thursday</th>
+                            <th>Friday</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>08:00 - 09:00</td>
+                            <td>Mathematics</td>
+                            <td>English</td>
+                            <td>Science</td>
+                            <td>History</td>
+                            <td>PE</td>
+                        </tr>
+                        <tr>
+                            <td>09:15 - 10:15</td>
+                            <td>English</td>
+                            <td>Science</td>
+                            <td>Mathematics</td>
+                            <td>PE</td>
+                            <td>Arts</td>
+                        </tr>
+                        <tr>
+                            <td>10:30 - 11:30</td>
+                            <td>Science</td>
+                            <td>History</td>
+                            <td>PE</td>
+                            <td>Mathematics</td>
+                            <td>History</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="messages" class="section-content hidden">
+                <h2>Messages</h2>
+                <div class="messages-list">
+                    <div class="message-item">
+                        <h4>From: Mr. Johnson (Mathematics)</h4>
+                        <p>Great work on the last assignment! Keep it up.</p>
+                        <p class="message-date">Today at 2:30 PM</p>
+                    </div>
+                    <div class="message-item">
+                        <h4>From: Principal's Office</h4>
+                        <p>Reminder: School assembly next Friday at 8:00 AM</p>
+                        <p class="message-date">Yesterday at 10:15 AM</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>

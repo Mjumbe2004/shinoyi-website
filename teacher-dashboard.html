@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard - Secondary School</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">📚 Secondary School</div>
+            <ul class="nav-links">
+                <li><a href="teacher-dashboard.html" class="active">Dashboard</a></li>
+                <li><a href="#classes">My Classes</a></li>
+                <li><a href="#grades">Grades</a></li>
+                <li><a href="#assignments">Assignments</a></li>
+                <li><button onclick="logout()" class="logout-btn">Logout</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="user-profile">
+                <div class="avatar">👨‍🏫</div>
+                <h3 id="teacherName"></h3>
+                <p>Teacher</p>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" onclick="showSection('overview')">Overview</a>
+                <a href="#" onclick="showSection('classes')">My Classes</a>
+                <a href="#" onclick="showSection('grades')">Manage Grades</a>
+                <a href="#" onclick="showSection('assignments')">Create Assignment</a>
+                <a href="#" onclick="showSection('attendance')">Attendance</a>
+                <a href="#" onclick="showSection('messages')">Messages</a>
+            </nav>
+        </aside>
+
+        <main class="dashboard-content">
+            <section id="overview" class="section-content">
+                <h2>Welcome Back!</h2>
+                <div class="dashboard-grid">
+                    <div class="card">
+                        <h3>📚 My Classes</h3>
+                        <p class="large-text">4</p>
+                    </div>
+                    <div class="card">
+                        <h3>👥 Total Students</h3>
+                        <p class="large-text">120</p>
+                    </div>
+                    <div class="card">
+                        <h3>📝 Pending Assignments</h3>
+                        <p class="large-text">8</p>
+                    </div>
+                    <div class="card">
+                        <h3>⏰ Office Hours</h3>
+                        <p class="large-text">Today 3PM</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="classes" class="section-content hidden">
+                <h2>My Classes</h2>
+                <div class="classes-grid">
+                    <div class="class-card">
+                        <h3>Mathematics - Class 10A</h3>
+                        <p><strong>Period:</strong> 08:00 - 09:00</p>
+                        <p><strong>Students:</strong> 30</p>
+                        <p><strong>Room:</strong> 101</p>
+                        <button onclick="viewClassDetails('10A')">View Details</button>
+                    </div>
+                    <div class="class-card">
+                        <h3>Mathematics - Class 10B</h3>
+                        <p><strong>Period:</strong> 09:15 - 10:15</p>
+                        <p><strong>Students:</strong> 28</p>
+                        <p><strong>Room:</strong> 102</p>
+                        <button onclick="viewClassDetails('10B')">View Details</button>
+                    </div>
+                    <div class="class-card">
+                        <h3>Advanced Math - Class 12A</h3>
+                        <p><strong>Period:</strong> 10:30 - 11:30</p>
+                        <p><strong>Students:</strong> 25</p>
+                        <p><strong>Room:</strong> 105</p>
+                        <button onclick="viewClassDetails('12A')">View Details</button>
+                    </div>
+                    <div class="class-card">
+                        <h3>Algebra - Class 11C</h3>
+                        <p><strong>Period:</strong> 13:00 - 14:00</p>
+                        <p><strong>Students:</strong> 32</p>
+                        <p><strong>Room:</strong> 110</p>
+                        <button onclick="viewClassDetails('11C')">View Details</button>
+                    </div>
+                </div>
+            </section>
+
+            <section id="grades" class="section-content hidden">
+                <h2>Manage Grades</h2>
+                <div class="grades-management">
+                    <div class="filter-group">
+                        <label for="classSelect">Select Class:</label>
+                        <select id="classSelect">
+                            <option>Class 10A</option>
+                            <option>Class 10B</option>
+                            <option>Class 12A</option>
+                            <option>Class 11C</option>
+                        </select>
+                    </div>
+                    <table class="grades-table">
+                        <thead>
+                            <tr>
+                                <th>Student Name</th>
+                                <th>Test 1</th>
+                                <th>Test 2</th>
+                                <th>Assignment</th>
+                                <th>Final Grade</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>John Smith</td>
+                                <td><input type="number" min="0" max="100" value="85"></td>
+                                <td><input type="number" min="0" max="100" value="90"></td>
+                                <td><input type="number" min="0" max="100" value="88"></td>
+                                <td>88</td>
+                            </tr>
+                            <tr>
+                                <td>Jane Doe</td>
+                                <td><input type="number" min="0" max="100" value="92"></td>
+                                <td><input type="number" min="0" max="100" value="95"></td>
+                                <td><input type="number" min="0" max="100" value="91"></td>
+                                <td>93</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button class="save-btn">Save Grades</button>
+                </div>
+            </section>
+
+            <section id="assignments" class="section-content hidden">
+                <h2>Create New Assignment</h2>
+                <form id="assignmentForm" class="assignment-form">
+                    <div class="form-group">
+                        <label for="assignmentClass">Select Class:</label>
+                        <select id="assignmentClass" required>
+                            <option>Class 10A</option>
+                            <option>Class 10B</option>
+                            <option>Class 12A</option>
+                            <option>Class 11C</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="assignmentTitle">Assignment Title:</label>
+                        <input type="text" id="assignmentTitle" placeholder="e.g., Chapter 5 Problems" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="assignmentDesc">Description:</label>
+                        <textarea id="assignmentDesc" placeholder="Assignment details..." required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="dueDate">Due Date:</label>
+                        <input type="date" id="dueDate" required>
+                    </div>
+                    <button type="submit" class="submit-btn">Create Assignment</button>
+                </form>
+            </section>
+
+            <section id="attendance" class="section-content hidden">
+                <h2>Mark Attendance</h2>
+                <div class="attendance-section">
+                    <div class="filter-group">
+                        <label for="attendanceClass">Select Class:</label>
+                        <select id="attendanceClass">
+                            <option>Class 10A</option>
+                            <option>Class 10B</option>
+                            <option>Class 12A</option>
+                            <option>Class 11C</option>
+                        </select>
+                        <input type="date" id="attendanceDate">
+                        <button onclick="loadAttendance()">Load Class</button>
+                    </div>
+                    <table class="attendance-table">
+                        <thead>
+                            <tr>
+                                <th>Student Name</th>
+                                <th>Present</th>
+                                <th>Absent</th>
+                                <th>Late</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>John Smith</td>
+                                <td><input type="radio" name="john" value="present"></td>
+                                <td><input type="radio" name="john" value="absent"></td>
+                                <td><input type="radio" name="john" value="late"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button class="save-btn">Save Attendance</button>
+                </div>
+            </section>
+
+            <section id="messages" class="section-content hidden">
+                <h2>Messages</h2>
+                <div class="messages-list">
+                    <div class="message-item">
+                        <h4>From: Principal</h4>
+                        <p>Meeting at 4:00 PM today in the principal's office</p>
+                        <p class="message-date">Today at 1:30 PM</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parent Dashboard - Secondary School</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">📚 Secondary School</div>
+            <ul class="nav-links">
+                <li><a href="parent-dashboard.html" class="active">Dashboard</a></li>
+                <li><a href="#student">Student Info</a></li>
+                <li><a href="#progress">Progress</a></li>
+                <li><a href="#contact">Contact Teacher</a></li>
+                <li><button onclick="logout()" class="logout-btn">Logout</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="user-profile">
+                <div class="avatar">👨‍👩‍👧‍👦</div>
+                <h3 id="parentName"></h3>
+                <p>Parent</p>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" onclick="showSection('overview')">Overview</a>
+                <a href="#" onclick="showSection('student')">Child's Profile</a>
+                <a href="#" onclick="showSection('grades')">Grades & Performance</a>
+                <a href="#" onclick="showSection('attendance')">Attendance</a>
+                <a href="#" onclick="showSection('progress')">Progress Report</a>
+                <a href="#" onclick="showSection('contact')">Contact Teacher</a>
+            </nav>
+        </aside>
+
+        <main class="dashboard-content">
+            <section id="overview" class="section-content">
+                <h2>Welcome to Parent Portal!</h2>
+                <div class="dashboard-grid">
+                    <div class="card">
+                        <h3>👨‍🎓 Child's Name</h3>
+                        <p id="childName">John Smith</p>
+                    </div>
+                    <div class="card">
+                        <h3>📊 Current GPA</h3>
+                        <p id="childGPA">3.8</p>
+                    </div>
+                    <div class="card">
+                        <h3>✅ Attendance</h3>
+                        <p id="childAttendance">95%</p>
+                    </div>
+                    <div class="card">
+                        <h3>📚 Class</h3>
+                        <p>Grade 10A</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="student" class="section-content hidden">
+                <h2>Child's Profile</h2>
+                <div class="profile-info">
+                    <div class="info-group">
+                        <h3>Personal Information</h3>
+                        <p><strong>Name:</strong> <span id="fullName">John Smith</span></p>
+                        <p><strong>Student ID:</strong> STU001</p>
+                        <p><strong>Grade:</strong> 10</p>
+                        <p><strong>Class:</strong> 10A</p>
+                        <p><strong>Date of Birth:</strong> January 15, 2008</p>
+                    </div>
+                    <div class="info-group">
+                        <h3>Contact Information</h3>
+                        <p><strong>Email:</strong> john.smith@student.school.edu</p>
+                        <p><strong>Phone:</strong> +1 (555) 123-4567 (School)</p>
+                    </div>
+                    <div class="info-group">
+                        <h3>Guardian Information</h3>
+                        <p><strong>Primary Guardian:</strong> Mary Smith</p>
+                        <p><strong>Guardian Email:</strong> mary.smith@email.com</p>
+                        <p><strong>Guardian Phone:</strong> +1 (555) 987-6543</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="grades" class="section-content hidden">
+                <h2>Grades & Performance</h2>
+                <table class="grades-table">
+                    <thead>
+                        <tr>
+                            <th>Subject</th>
+                            <th>Teacher</th>
+                            <th>Latest Grade</th>
+                            <th>Performance</th>
+                            <th>Comment</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Mathematics</td>
+                            <td>Mr. Johnson</td>
+                            <td>A (92%)</td>
+                            <td><div class="progress-bar"><div class="progress" style="width: 92%"></div></div></td>
+                            <td>Excellent work</td>
+                        </tr>
+                        <tr>
+                            <td>English</td>
+                            <td>Ms. Smith</td>
+                            <td>A- (88%)</td>
+                            <td><div class="progress-bar"><div class="progress" style="width: 88%"></div></div></td>
+                            <td>Good progress</td>
+                        </tr>
+                        <tr>
+                            <td>Science</td>
+                            <td>Dr. Brown</td>
+                            <td>A (91%)</td>
+                            <td><div class="progress-bar"><div class="progress" style="width: 91%"></div></div></td>
+                            <td>Very good</td>
+                        </tr>
+                        <tr>
+                            <td>History</td>
+                            <td>Mr. Davis</td>
+                            <td>B+ (85%)</td>
+                            <td><div class="progress-bar"><div class="progress" style="width: 85%"></div></div></td>
+                            <td>Satisfactory</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="attendance" class="section-content hidden">
+                <h2>Attendance Record</h2>
+                <div class="attendance-stats">
+                    <div class="stat-card">
+                        <h3>Total Days Present</h3>
+                        <p>180</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Days Absent</h3>
+                        <p>5</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Days Late</h3>
+                        <p>3</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Attendance %</h3>
+                        <p>95%</p>
+                    </div>
+                </div>
+                <h3>Recent Attendance</h3>
+                <ul class="attendance-list">
+                    <li>June 11, 2024 - Present</li>
+                    <li>June 10, 2024 - Present</li>
+                    <li>June 9, 2024 - Present</li>
+                    <li>June 8, 2024 - Late</li>
+                    <li>June 7, 2024 - Present</li>
+                </ul>
+            </section>
+
+            <section id="progress" class="section-content hidden">
+                <h2>Progress Report</h2>
+                <div class="progress-cards">
+                    <div class="progress-item">
+                        <h3>Academic Performance</h3>
+                        <p>Overall average: <strong>90%</strong></p>
+                        <p>Current trend: Improving</p>
+                        <p class="comment">Your child is performing very well academically. Keep encouraging consistent effort.</p>
+                    </div>
+                    <div class="progress-item">
+                        <h3>Behavioral Conduct</h3>
+                        <p>Rating: <strong>Excellent</strong></p>
+                        <p>No disciplinary issues reported</p>
+                        <p class="comment">Your child demonstrates excellent behavior and respect for school rules.</p>
+                    </div>
+                    <div class="progress-item">
+                        <h3>Class Participation</h3>
+                        <p>Rating: <strong>Good</strong></p>
+                        <p>Participation level: Active</p>
+                        <p class="comment">Your child participates well in class discussions and group activities.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact" class="section-content hidden">
+                <h2>Contact Teachers</h2>
+                <div class="teachers-list">
+                    <div class="teacher-card">
+                        <h3>Mr. Johnson</h3>
+                        <p><strong>Subject:</strong> Mathematics</p>
+                        <p><strong>Email:</strong> john.johnson@school.edu</p>
+                        <p><strong>Office Hours:</strong> Monday & Wednesday, 3:00-4:00 PM</p>
+                        <button onclick="sendMessage('Mr. Johnson')">Send Message</button>
+                    </div>
+                    <div class="teacher-card">
+                        <h3>Ms. Smith</h3>
+                        <p><strong>Subject:</strong> English</p>
+                        <p><strong>Email:</strong> smith.m@school.edu</p>
+                        <p><strong>Office Hours:</strong> Tuesday & Thursday, 3:00-4:00 PM</p>
+                        <button onclick="sendMessage('Ms. Smith')">Send Message</button>
+                    </div>
+                    <div class="teacher-card">
+                        <h3>Dr. Brown</h3>
+                        <p><strong>Subject:</strong> Science</p>
+                        <p><strong>Email:</strong> brown.d@school.edu</p>
+                        <p><strong>Office Hours:</strong> Monday & Friday, 3:00-4:00 PM</p>
+                        <button onclick="sendMessage('Dr. Brown')">Send Message</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>
